@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 4f;
     // Impacts forward and backward speed.
 
-    public float rotateSpeed = 0.5f;
+    public float rotateSpeed = 100f;
     // Impacts speed of rotation left and right.
 
     public float gravity = -19.62f;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         // Gets input for "Horizontal" and "Vertical" axis, which is WASD and Arrow keys. Should be configurable to include controller.
 
-        player.Rotate(Vector3.up * x * rotateSpeed);
+        player.Rotate(Vector3.up * x * rotateSpeed * Time.deltaTime);
         // Rotates player based on left and right input and rotation speed.
 
         Vector3 move = transform.forward * z;
